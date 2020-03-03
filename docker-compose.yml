@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  aoe2comments_db:
+    image: postgres
+
+  aoe2comments:
+    build: .
+    volumes:
+      - ./app:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+       - aoe2comments_db
